@@ -18,8 +18,8 @@
                 </div>
             </section>
             <footer>
-                <div class="password"></div>
-                <button class="btn-refresh">refresh</button>
+                <div class="password">{{ generatedPassword }}</div>
+                <button class="btn-refresh" @click="refreshPassword = !refreshPassword">refresh</button>
             </footer>
         </article>
     </div>
@@ -53,6 +53,22 @@ export default {
                 chars: '!$%&?+*#-/'
               }
           ]
+      }
+  },
+  computed: {
+      charset() {
+          return [...this.optiondata]
+                .map(element => {
+                    if(element.status === true)
+                    return element.chars;
+                }).join('');
+      },
+      generatedPassword() {
+          this.refreshPassword;
+
+          return [...window.crypto.getRandomValues(new Uint32Array(this.passwordLength))]
+                    .map(value => this.charset[value % this.charset.length])
+                    .join('');
       }
   }  
 }
