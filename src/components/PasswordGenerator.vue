@@ -6,11 +6,15 @@
             </header>
             <section>
                 <div class="slidecontainer">
-                    <label for="passRange">length: </label>
-                    <input type="range" min="8" max="24" class="slider" id="passRange">   
+                    <label for="passRange">length: {{ passwordLength }}</label>
+                    <input type="range" min="8" max="24" v-model="passwordLength" class="slider" id="passRange">   
                 </div>
                 <div class="options">
-
+                    <label class="container" v-for="(option, index) in optiondata" :key="index">
+                        {{ option.name }}
+                        <input type="checkbox" v-model="option.status">
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
             </section>
             <footer>
@@ -23,7 +27,34 @@
 
 <script>
 export default {
-    
+  data: function() {
+      return {
+          passwordLength: 16,
+          refreshPassword: false,
+          optiondata: [
+              {
+                  name: 'lowercase',
+                  status: true,
+                  chars: 'abcdefghijklmnopqrstuvwxyz'
+              },
+              {
+                  name: 'uppercase',
+                  status: true,
+                  chars: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+              },
+              {
+                  name: 'numbers',
+                  status: true,
+                  chars: '0123456789'
+              },
+              {
+                  name: 'specialchars',
+                status: false,
+                chars: '!$%&?+*#-/'
+              }
+          ]
+      }
+  }  
 }
 </script>
 
