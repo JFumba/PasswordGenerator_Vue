@@ -93,7 +93,7 @@ export default {
   header {
     padding: 10px 0;
     margin-bottom: 10px;
-    background-color: #e74c3c;
+    background-color: #008080;
     h1 {
       margin: 0;
       color: #fff;
@@ -119,9 +119,9 @@ export default {
         appearance: none;
         width: 30px;
         height: 30px;
-        border: 2px solid #e74c3c;
+        border: 2px solid #008080;
         border-radius: 50%;
-        background-color: #f1c40f;
+        background-color: #66b2b2;
         cursor: pointer;
       }
     }
@@ -141,7 +141,7 @@ export default {
         user-select: none;
         cursor: pointer;
         &:hover input ~ .checkmark {
-          background-color: #f1c40f;
+          background-color: #66b2b2;
         }
       }
       .container input {
@@ -151,7 +151,7 @@ export default {
         height: 0;
         width: 0;
         &:checked ~ .checkmark {
-          background-color: #e74c3c;
+          background-color: #008080;
           &:after {
             display: block;
           }
@@ -193,7 +193,7 @@ export default {
       font-size: 2rem;
       border: none;
       border-radius: 5px;
-      background-color: #e74c3c;
+      background-color: #008080;
       color: #fff;
       padding: 5px 10px;
       outline:none;
